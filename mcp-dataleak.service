@@ -1,0 +1,25 @@
+[Unit]
+Description=MCP Dataleak Server
+After=network.target
+
+[Service]
+Type=simple
+User={SERVER_USER}
+WorkingDirectory=/home/{SERVER_USER}/mcp-server
+ExecStart=/usr/bin/node index.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mcp-dataleak
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=false
+ReadWritePaths=/home/{SERVER_USER}/dataleak /home/{SERVER_USER}/mcp-server
+
+[Install]
+WantedBy=multi-user.target
