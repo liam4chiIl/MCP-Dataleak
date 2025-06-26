@@ -1,0 +1,42 @@
+{
+  "name": "mcp-dataleak-server",
+  "version": "1.0.0",
+  "description": "MCP Server for dataleak file search using grep",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build": "tsc",
+    "typescript": "tsx src/index.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "dataleak",
+    "search",
+    "grep",
+    "security"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "tsx": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mcp-dataleak-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/mcp-dataleak-server/issues"
+  },
+  "homepage": "https://github.com/yourusername/mcp-dataleak-server#readme"
+}
