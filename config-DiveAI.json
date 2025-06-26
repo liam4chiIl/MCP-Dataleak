@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "dataleak-search": {
+      "transport": "stdio",
+      "enabled": true,
+      "command": "ssh",
+      "args": [
+        "-i",
+        "/Users/{LOCAL_USER}/.ssh/id_rsa_dataleak",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=/dev/null",
+        "{SERVER_USER}@{SERVER_IP}",
+        "cd /home/{SERVER_USER}/mcp-server && node index.js"
+      ],
+      "env": {},
+      "url": null,
+      "headers": null
+    }
+  }
+}
