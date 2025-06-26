@@ -1,11 +1,10 @@
 # MCP Dataleak Server
 
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg)](https://www.typescriptlang.org/)
 [![MCP](https://img.shields.io/badge/Protocol-MCP-orange.svg)](https://modelcontextprotocol.io/)
 
-> **Serveur MCP pour investigation OSINT et analyse de dataleak en temps réel**
+> **Serveur MCP pour analyse de dataleak en temps réel**
 
 ## Inspiration du Projet
 
@@ -13,7 +12,7 @@ Dans le domaine de la cybersécurité et de l'investigation OSINT, l'analyse de 
 
 Traditionnellement, cette analyse nécessite l'utilisation d'outils en ligne de commande dispersés, de scripts personnalisés et de processus manuels chronophages. L'émergence du protocole Model Context Protocol (MCP) offre une opportunité unique d'intégrer ces capacités directement dans des interfaces conversationnelles intelligentes.
 
-Ce projet transforme l'investigation de dataleak en permettant aux analystes de formuler des requêtes en langage naturel et d'obtenir des résultats structurés immédiatement exploitables.
+Avec ce projet j'essaie de transformer l'investigation de dataleak en permettant aux analystes de formuler des requêtes en langage naturel et d'obtenir des résultats structurés immédiatement exploitables.
 
 ## Objectif et Cas d'Usage
 
@@ -79,7 +78,7 @@ Avant le déploiement, personnaliser ces variables selon votre infrastructure :
 
 | Variable | Description | Exemple | Localisation |
 |----------|-------------|---------|--------------|
-| `{SERVER_IP}` | Adresse IP du serveur Ubuntu | `192.168.1.31` | Fichiers de configuration |
+| `{SERVER_IP}` | Adresse IP du serveur MCP | `192.168.1.31` | Fichiers de configuration |
 | `{SERVER_USER}` | Utilisateur système sur le serveur | `user` | Code source et configs |
 | `{LOCAL_USER}` | Utilisateur local du poste d'analyse | `analyst` | Configurations clients MCP |
 | `{SSH_KEY_NAME}` | Nom de la clé SSH dédiée | `id_rsa_dataleak` | Configurations SSH |
@@ -143,28 +142,28 @@ utilise search_dataleak pour [terme de recherche]
 ```
 utilise search_dataleak pour john.doe@company.com
 utilise search_dataleak pour John Doe
-utilise search_dataleak pour johndoe
+Recherche des informations sur johndoe
 ```
 
 **Recherche par infrastructure**
 ```
 utilise search_dataleak pour 192.168.1.100
 utilise search_dataleak pour company.com
-utilise search_dataleak pour subdomain.target.org
+Récupère les informations pour subdomain.target.org
 ```
 
 **Recherche par identifiants techniques**
 ```
 utilise search_dataleak pour username123
 utilise search_dataleak pour API_KEY_12345
-utilise search_dataleak pour session_token
+Quels sont les informations pour session_token
 ```
 
 **Recherche par informations personnelles**
 ```
 utilise search_dataleak pour +33612345678
 utilise search_dataleak pour 1990-05-15
-utilise search_dataleak pour "123 Main Street"
+À qui appartient l'adresse IP:192.168.1.100
 ```
 
 ### Interprétation des résultats
@@ -248,7 +247,7 @@ Chaque résultat indique :
 - Respecter les réglementations locales
 - Protéger les informations des victimes
 
-## Monitoring et Audit
+## Monitoring
 
 ### Surveillance opérationnelle
 
@@ -310,62 +309,6 @@ sudo systemctl status mcp-dataleak
 - Documentation de la justification d'usage
 - Respect des droits des personnes concernées
 
-## Extension et Personnalisation
-
-### Architecture modulaire
-
-Le code est structuré pour faciliter les extensions :
-
-```typescript
-interface SearchArgs {
-  query: string;
-  options?: SearchOptions;
-}
-
-interface SearchOptions {
-  caseSensitive?: boolean;
-  fileTypes?: string[];
-  maxResults?: number;
-}
-```
-
-### Points d'extension
-
-**Nouveaux formats de données**
-- Ajout de parsers spécialisés
-- Support de bases de données externes
-- Intégration avec des APIs de threat intelligence
-
-**Fonctionnalités de recherche avancées**
-- Recherche par expressions régulières
-- Recherche floue et approximative
-- Indexation pour des performances accrues
-
-**Intégrations externes**
-- Export vers des outils d'analyse
-- Notifications automatiques
-- Interfaces de visualisation
-
-## Support et Contribution
-
-### Documentation
-
-- Documentation technique complète dans `/docs`
-- Exemples d'utilisation dans `/examples`
-- Guides de troubleshooting dans `/guides`
-
-### Contribution
-
-Le projet accueille les contributions de la communauté OSINT et cybersécurité :
-
-1. Issues pour signaler des bugs ou demandes de fonctionnalités
-2. Pull requests pour des améliorations
-3. Documentation et exemples d'usage
-4. Tests et validation sur différents environnements
-
-### Licence et Usage
-
-Distribué sous licence MIT pour encourager l'adoption par la communauté tout en maintenant la transparence du code source.
 
 **Disclaimer** : Cet outil est destiné exclusivement à des fins d'investigation légales et éthiques. L'utilisateur est responsable du respect des lois locales et de l'utilisation appropriée des données personnelles.
 
